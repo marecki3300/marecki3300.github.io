@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jak zdać maturę z angielskiego w 7 dni? | KasiaEnglish Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0e0c;
+    --cream: #f7f3ec;
+    --warm: #e8dfc8;
+    --accent: #c9392b;
+    --gold: #c8973a;
+    --mid: #6b6356;
+  }
+
+  html { font-size: 18px; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.75;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--ink);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .site-header .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+    letter-spacing: .04em;
+    text-decoration: none;
+  }
+  .site-header .cta-small {
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--gold);
+    padding: .45rem 1.1rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .site-header .cta-small:hover { opacity: .85; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: var(--ink);
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, #2a1f0e 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: .7rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    color: var(--cream);
+    line-height: 1.15;
+    max-width: 780px;
+    margin: 0 auto 1.6rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-meta {
+    font-size: .78rem;
+    color: #9e9283;
+    letter-spacing: .06em;
+  }
+  .hero-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--accent);
+    margin: 2rem auto 0;
+  }
+
+  /* ── ARTICLE WRAPPER ── */
+  .article {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .article h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 3rem 0 1rem;
+  }
+  .article h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin: 2rem 0 .7rem;
+  }
+  .article p { margin-bottom: 1.3rem; color: #2c2820; }
+  .article p:first-child { font-size: 1.1rem; color: var(--mid); }
+  .article strong { color: var(--ink); font-weight: 500; }
+
+  /* ── PULL QUOTE ── */
+  .pullquote {
+    border-left: 4px solid var(--accent);
+    padding: 1.2rem 1.6rem;
+    margin: 2.5rem 0;
+    background: var(--warm);
+    border-radius: 0 6px 6px 0;
+  }
+  .pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--ink) !important;
+    margin: 0;
+  }
+
+  /* ── STAT ROW ── */
+  .stats {
+    display: flex;
+    gap: 1rem;
+    margin: 2.5rem 0;
+    flex-wrap: wrap;
+  }
+  .stat-card {
+    flex: 1 1 140px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 6px;
+    padding: 1.4rem 1.2rem;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+  .stat-card .lbl {
+    font-size: .72rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #9e9283;
+    margin-top: .4rem;
+    display: block;
+  }
+
+  /* ── TOPICS GRID ── */
+  .topics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: .8rem;
+    margin: 2rem 0;
+  }
+  .topic-item {
+    background: var(--warm);
+    border-radius: 6px;
+    padding: .9rem 1.1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+  }
+  .topic-item .icon {
+    color: var(--accent);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    flex-shrink: 0;
+  }
+  .topic-item span {
+    font-size: .85rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* ── CTA BOX ── */
+  .cta-box {
+    background: var(--ink);
+    border-radius: 10px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    margin: 3.5rem 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #c8973a33, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-box .price-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: .7rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    padding: .3rem .9rem;
+    border-radius: 20px;
+    margin-bottom: 1.2rem;
+  }
+  .cta-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--cream);
+    margin: 0 0 .6rem;
+  }
+  .cta-box p {
+    color: #9e9283;
+    font-size: .9rem;
+    max-width: 420px;
+    margin: 0 auto 1.8rem;
+  }
+  .cta-box .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1.4rem;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: .85rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 1rem 2.4rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform .2s, opacity .2s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); opacity: .9; }
+  .cta-box .sub-note {
+    font-size: .72rem;
+    color: #6b6356;
+    margin-top: 1rem;
+    display: block;
+  }
+
+  /* ── DIVIDER ── */
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 1.4rem;
+    margin: 2.5rem 0;
+    opacity: .6;
+    letter-spacing: .4em;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--ink);
+    color: #6b6356;
+    text-align: center;
+    padding: 2rem;
+    font-size: .75rem;
+    letter-spacing: .05em;
+  }
+  .site-footer a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 520px) {
+    .hero { padding: 4rem 1.2rem 3.5rem; }
+    .cta-box { padding: 2.2rem 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a class="brand" href="https://matura-angielski-2026.pl/">KasiaEnglish</a>
+  <a class="cta-small" href="https://matura-angielski-2026.pl/platnosc.html">Kup e-book → 49 zł</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Blog · Przygotowanie do matury</p>
+  <h1>Jak zdać maturę<br>z angielskiego —<br><em>nawet jeśli masz mało czasu?</em></h1>
+  <p class="hero-meta">Kasia English Teacher &nbsp;·&nbsp; Kwiecień 2025 &nbsp;·&nbsp; 6 min czytania</p>
+  <div class="hero-rule"></div>
+</section>
+
+<!-- ARTICLE -->
+<article class="article">
+
+  <p>Zostało kilka tygodni do matury, a ty wciąż nie wiesz, od czego zacząć powtórkę z angielskiego? Nie jesteś sam. Wielu uczniów trafia do mnie z dokładnie tym samym problemem — dużo materiału, mało czasu i strach, że na egzaminie wszystko wypadnie z głowy.</p>
+
+  <p>W tym artykule pokażę ci, dlaczego <strong>systematyczna powtórka gramatyki</strong> to klucz do sukcesu na maturze podstawowej z angielskiego — i jak możesz to zrobić skutecznie, nawet zaczynając od zera.</p>
+
+  <h2>Dlaczego gramatyka decyduje o wyniku?</h2>
+
+  <p>Matura z języka angielskiego na poziomie podstawowym sprawdza przede wszystkim, czy potrafisz poprawnie operować strukturami językowymi. Zadania z transformacjami zdań, uzupełnianie luk, mowa zależna, strona bierna — to wszystko gramatyka. I to właśnie w tych zadaniach uczniowie tracą najwięcej punktów.</p>
+
+  <div class="pullquote">
+    <p>„Nie brakuje im słówek — brakuje im pewności w gramatyce. Gdy ją zdobywają, wyniki skaczą w górę."</p>
+  </div>
+
+  <p>Dobra wiadomość jest taka, że gramatyki można się nauczyć w krótkim czasie — pod warunkiem, że ćwiczysz na zadaniach naprawdę zbliżonych do tych egzaminacyjnych, a nie przepisujesz tabelki z podręcznika.</p>
+
+  <h2>7 zagadnień, które musisz opanować</h2>
+
+  <p>Na maturze podstawowej z angielskiego wracają te same tematy gramatyczne, rok po roku. Oto lista rzeczy, którymi <strong>zdecydowanie warto się zająć</strong>:</p>
+
+  <div class="topics">
+    <div class="topic-item"><span class="icon">◆</span><span>Czasy angielskie — od Present Simple po Past Perfect Continuous</span></div>
+    <div class="topic-item"><span class="icon">◆</span><span>Strona bierna — tworzenie i przekształcanie zdań</span></div>
+    <div class="topic-item"><span class="icon">◆</span><span>Mowa zależna — przesunięcia czasowe i zmiany zaimków</span></div>
+    <div class="topic-item"><span class="icon">◆</span><span>Tryby warunkowe — Zero, First, Second, Third Conditional</span></div>
+    <div class="topic-item"><span class="icon">◆</span><span>Przyimki — te, które zawsze sprawiają problemy</span></div>
+    <div class="topic-item"><span class="icon">◆</span><span>Szyk zdania — pytania, zdania podrzędne, inwersja</span></div>
+  </div>
+
+  <p>Każde z tych zagadnień pojawia się w e-booku <strong>„Angielski do Matury"</strong> w postaci konkretnych zadań — ułożonych tak, jak wyglądają na prawdziwym egzaminie.</p>
+
+  <div class="ornament">✦ ✦ ✦</div>
+
+  <h2>Metoda, która działa: ćwicz, nie czytaj</h2>
+
+  <p>Największy błąd maturzystów? Czytanie notatek i podkreślanie regułek. To daje złudzenie nauki, ale nie buduje prawdziwych umiejętności. Mózg uczy się przez <strong>aktywne wydobywanie wiedzy</strong> — czyli przez rozwiązywanie zadań i natychmiastową korektę błędów.</p>
+
+  <p>Dlatego e-book zawiera aż <strong>100 zadań z kluczem odpowiedzi</strong>. Rozwiązujesz, sprawdzasz, analizujesz błąd i idziesz dalej. Żadnych długich teorii — tylko praktyka.</p>
+
+  <div class="stats">
+    <div class="stat-card">
+      <span class="num">100</span>
+      <span class="lbl">Zadań egzaminacyjnych</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">7</span>
+      <span class="lbl">Kluczowych działów</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">98</span>
+      <span class="lbl">Zadowolonych uczniów</span>
+    </div>
+  </div>
+
+  <h2>Jak zaplanować powtórkę krok po kroku?</h2>
+
+  <h3>Krok 1 — Oceń siebie uczciwie</h3>
+  <p>Zanim zaczniesz, przejrzyj 10–15 zadań z e-booka i sprawdź, które zagadnienia robisz niemal bezbłędnie, a gdzie popełniasz błędy. To twoja mapa słabych punktów.</p>
+
+  <h3>Krok 2 — Zaplanuj 7 sesji po 45 minut</h3>
+  <p>Jeden dział = jeden dzień. Każda sesja to zapoznanie się z przykładem, rozwiązanie zestawu zadań i natychmiastowa korekta z kluczem. Taki rytm naprawdę działa — i dokładnie tak jest ułożony materiał w e-booku.</p>
+
+  <h3>Krok 3 — Wróć do błędów dwa razy</h3>
+  <p>Zaznacz zadania, w których się pomyliłeś. Wróć do nich po 48 godzinach i rozwiąż jeszcze raz, nie patrząc na klucz. Jeśli tym razem jest poprawnie — materiał wszedł. Jeśli nie — wróć do teorii i spróbuj jeszcze raz.</p>
+
+  <h3>Krok 4 — Symuluj warunki egzaminacyjne</h3>
+  <p>Na tydzień przed maturą rozwiąż kilka zestawów zadań na czas, bez sprawdzania odpowiedzi w trakcie. To oswoi cię ze stresem i pokaże, jak reagujesz pod presją.</p>
+
+  <div class="pullquote">
+    <p>„Gramatyka nigdy nie była tak przystępna. Jasne wyjaśnienia i skuteczne zadania — pozycja obowiązkowa dla każdego maturzysty."</p>
+  </div>
+
+  <h2>Format PDF — ucz się wszędzie</h2>
+
+  <p>E-book jest dostępny w formacie PDF, który działa na telefonie, tablecie i komputerze — możesz też wydrukować go i ćwiczyć z długopisem w ręku. Dostęp dostajesz od razu po zakupie.</p>
+
+  <p>Jedna cena, bez abonamentów, bez logowania. Materiał zostaje z tobą na zawsze — możesz do niego wracać po maturze przy okazji innych egzaminów czy rozmów kwalifikacyjnych.</p>
+
+  <!-- CTA BOX -->
+  <div class="cta-box">
+    <span class="price-tag">Matura 2026</span>
+    <h2>Gotowy na egzamin?</h2>
+    <p>100 zadań gramatycznych z kluczem odpowiedzi — format PDF, natychmiastowy dostęp.</p>
+    <span class="price">49 zł</span>
+    <a class="cta-btn" href="https://matura-angielski-2026.pl/platnosc.html">Pobierz e-book teraz</a>
+    <span class="sub-note">Jednorazowa płatność · Bez subskrypcji · Dostęp od razu</span>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© 2025 KasiaEnglish · Wydawnictwo Oświatowe Kasia, English Teacher &nbsp;|&nbsp;
+  <a href="https://matura-angielski-2026.pl/page3.html">Regulamin</a> &nbsp;·&nbsp;
+  <a href="https://matura-angielski-2026.pl/page4.html">Polityka prywatności</a></p>
+</footer>
+
+</body>
+</html>
