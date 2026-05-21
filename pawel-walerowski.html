@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paweł Walerowski — Cellist & Music Educator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F8F4EE;
+    --warm-dark: #1A1410;
+    --brown: #5C3D2E;
+    --gold: #B8922A;
+    --gold-light: #E8C96A;
+    --text-muted: #6B5744;
+    --line: rgba(92,61,46,0.18);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--warm-dark);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background: rgba(248,244,238,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--line);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--warm-dark);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 4rem;
+    padding-top: 5rem;
+    gap: 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -120px; top: 50%;
+    transform: translateY(-50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,146,42,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-text { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: var(--gold);
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--brown);
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-style: italic;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 420px;
+    line-height: 1.9;
+    margin-bottom: 3rem;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--warm-dark);
+    color: var(--cream);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: background 0.3s, color 0.3s;
+    font-family: var(--sans);
+    font-weight: 400;
+  }
+  .hero-cta:hover {
+    background: var(--gold);
+    color: var(--warm-dark);
+  }
+  .hero-cta-arrow { font-size: 1rem; transition: transform 0.3s; }
+  .hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
+
+  .hero-image-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-photo-frame {
+    position: relative;
+    width: 380px;
+    height: 480px;
+  }
+  .hero-photo-frame::before {
+    content: '';
+    position: absolute;
+    top: 20px; left: 20px; right: -20px; bottom: -20px;
+    border: 1px solid var(--gold);
+    opacity: 0.4;
+  }
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: sepia(8%) contrast(1.02);
+  }
+  .hero-initials-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #D4C4B0 0%, #B8A896 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 6rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+  }
+
+  /* SECTION HELPERS */
+  section { padding: 6rem 4rem; }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--gold);
+  }
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  .section-heading em { font-style: italic; color: var(--brown); }
+  .divider { width: 100%; height: 0.5px; background: var(--line); }
+
+  /* ABOUT */
+  .about { background: #FFFFFF; }
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .about-left { position: sticky; top: 8rem; }
+  .about-stats {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--warm-dark);
+    line-height: 1;
+  }
+  .stat-num span { color: var(--gold); }
+  .stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+  }
+  .about-text p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.95;
+    margin-bottom: 1.5rem;
+  }
+  .about-text p:first-of-type {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 300;
+    color: var(--warm-dark);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* CREDENTIALS */
+  .credentials { background: var(--cream); }
+  .cred-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .cred-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 3rem;
+    background: var(--line);
+  }
+  .cred-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .cred-card:hover { background: #fff; }
+  .cred-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+  .cred-card:hover::before { height: 100%; }
+  .cred-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    display: block;
+    filter: grayscale(0.3);
+  }
+  .cred-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--warm-dark);
+  }
+  .cred-place {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .cred-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  /* REPERTOIRE */
+  .repertoire { background: var(--warm-dark); color: var(--cream); }
+  .repertoire .section-label { color: var(--gold-light); }
+  .repertoire .section-label::before { background: var(--gold-light); }
+  .repertoire .section-heading { color: var(--cream); }
+  .rep-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+  }
+  .rep-category-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    border-bottom: 0.5px solid rgba(232,201,106,0.25);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .rep-list { list-style: none; }
+  .rep-list li {
+    padding: 0.7rem 0;
+    border-bottom: 0.5px solid rgba(248,244,238,0.08);
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(248,244,238,0.85);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .rep-list li span {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(232,201,106,0.6);
+  }
+
+  /* INSTRUMENTS */
+  .instruments { background: #fff; }
+  .instr-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .instr-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .instr-card {
+    border: 0.5px solid var(--line);
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .instr-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+  .instr-glyph {
+    position: absolute;
+    right: 2rem; top: 2rem;
+    font-family: var(--serif);
+    font-size: 8rem;
+    line-height: 1;
+    color: rgba(184,146,42,0.07);
+    font-weight: 300;
+    user-select: none;
+    pointer-events: none;
+  }
+  .instr-name {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 0.3rem;
+    color: var(--warm-dark);
+  }
+  .instr-level {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .instr-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.85;
+  }
+
+  /* HIGHLIGHTS */
+  .highlights { background: var(--cream); }
+  .hl-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .hl-timeline {
+    margin-top: 3rem;
+    position: relative;
+    padding-left: 2rem;
+  }
+  .hl-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 0.5px;
+    background: var(--line);
+  }
+  .hl-item {
+    position: relative;
+    padding: 0 0 2.5rem 2.5rem;
+  }
+  .hl-item::before {
+    content: '';
+    position: absolute;
+    left: -4px; top: 6px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .hl-location {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .hl-text {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--warm-dark);
+    line-height: 1.5;
+  }
+  .hl-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+  }
+
+  /* CONTACT */
+  .contact { background: var(--warm-dark); }
+  .contact .section-label { color: var(--gold-light); }
+  .contact .section-label::before { background: var(--gold-light); }
+  .contact .section-heading { color: var(--cream); }
+  .contact-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    margin-top: 3rem;
+  }
+  .contact-info { color: rgba(248,244,238,0.75); }
+  .contact-info p {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(248,244,238,0.85);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(248,244,238,0.75);
+    text-decoration: none;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    padding: 1rem 0;
+    border-bottom: 0.5px solid rgba(248,244,238,0.1);
+    transition: color 0.3s;
+  }
+  .contact-link:hover { color: var(--gold-light); }
+  .contact-link-icon {
+    width: 36px; height: 36px;
+    border: 0.5px solid rgba(248,244,238,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: border-color 0.3s;
+  }
+  .contact-link:hover .contact-link-icon { border-color: var(--gold-light); }
+  .contact-school {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.1);
+    padding: 2.5rem;
+  }
+  .school-name {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  .school-sub {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1.5rem;
+  }
+  .school-detail {
+    font-size: 0.88rem;
+    color: rgba(248,244,238,0.6);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  .school-btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: 0.5px solid rgba(248,244,238,0.3);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .school-btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--warm-dark);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0E0B08;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
+  }
+  footer p {
+    font-size: 0.75rem;
+    color: rgba(248,244,238,0.3);
+    letter-spacing: 0.05em;
+  }
+  footer .footer-name {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(248,244,238,0.5);
+    font-style: italic;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { opacity: 0; animation: fadeUp 0.9s ease forwards; }
+  .fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in:nth-child(2) { animation-delay: 0.25s; }
+  .fade-in:nth-child(3) { animation-delay: 0.4s; }
+  .fade-in:nth-child(4) { animation-delay: 0.55s; }
+
+  /* Large decorative quote */
+  .quote-section {
+    background: #fff;
+    padding: 5rem 4rem;
+    text-align: center;
+    border-top: 0.5px solid var(--line);
+    border-bottom: 0.5px solid var(--line);
+  }
+  .quote-text {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--warm-dark);
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.45;
+  }
+  .quote-source {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .hero { grid-template-columns: 1fr; padding: 8rem 2rem 4rem; gap: 3rem; }
+    .hero-image-wrap { order: -1; }
+    .hero-photo-frame { width: 260px; height: 340px; }
+    section { padding: 4rem 2rem; }
+    .about-inner, .contact-inner, .rep-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .about-left { position: static; }
+    .cred-grid { grid-template-columns: 1fr; }
+    .instr-cards { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Paweł Walerowski</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#instruments">Instruments</a></li>
+    <li><a href="#highlights">Career</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="hero-eyebrow fade-in">Cellist · Pianist · Educator</div>
+    <h1 class="hero-name fade-in">Paweł<br><em>Walerowski</em></h1>
+    <p class="hero-title fade-in">Classically trained. Versatile in spirit.</p>
+    <p class="hero-desc fade-in">A Master's graduate of the Conservatory of Poznań, Paweł brings decades of international performance experience to concert halls, studios, and the private lesson room — teaching cello and piano to students of all levels in Danville, CA.</p>
+    <a href="#contact" class="hero-cta fade-in">Book a lesson <span class="hero-cta-arrow">→</span></a>
+  </div>
+  <div class="hero-image-wrap">
+    <div class="hero-photo-frame">
+      <img
+        src="https://www.ensembleschools.com/reeder/wp-content/uploads/sites/36/2026/02/unnamed-7.png"
+        alt="Paweł Walerowski — cellist and music educator"
+        class="hero-photo"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      >
+      <div class="hero-initials-placeholder" style="display:none;">PW</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-left">
+      <div class="section-label">Biography</div>
+      <h2 class="section-heading">A life<br>built on <em>music</em></h2>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-num">2<span>+</span></div>
+          <div class="stat-label">Decades of performance</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3<span>+</span></div>
+          <div class="stat-label">Continents performed on</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Instruments taught</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-text">
+      <p>Formally trained in Poland and a graduate of the Conservatory of Poznań with a Master's Degree in Cello Performance, Paweł has built a career that spans continents, genres, and stages.</p>
+      <p>His early career in Europe saw him performing in ensembles across Poland, recording for radio and television, and receiving honors at the prestigious J.S. Bach Competition and the International Cello Competition in Austria. He served as Principal Cellist of the Youth String Orchestra in Slovenia and toured Europe with the Andrew Lloyd Webber Orchestra.</p>
+      <p>Coming to the United States to further his studies at The University of Arizona, Paweł quickly established himself across the country — performing as a cellist for Opera in the Ozarks in Arkansas, touring with an eclectic band through festivals and venues, and gracing San Francisco's renowned jazz club Yoshi's.</p>
+      <p>In the Bay Area, Paweł has recorded for singer-songwriters, performed with the Diablo Symphony, and contributed to the San Francisco Symphony's Adventures in Music Program — one of the longest-running orchestral education programs in the country.</p>
+      <p>Today, Paweł is a faculty member at Reeder Music Academy in Danville, California, where he teaches cello and piano to beginners and advanced students alike, sharing his love for classical, pop, and jazz styles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <p class="quote-text">"Music is the universal language — and my deepest joy is helping students find their own voice within it."</p>
+  <div class="quote-source">Paweł Walerowski</div>
+</div>
+
+<!-- CREDENTIALS -->
+<section class="credentials">
+  <div class="cred-inner">
+    <div class="section-label">Education & Honours</div>
+    <h2 class="section-heading">Formal <em>training</em><br>& recognition</h2>
+    <div class="cred-grid">
+      <div class="cred-card">
+        <span class="cred-icon">🎓</span>
+        <div class="cred-title">Master's Degree</div>
+        <div class="cred-place">Conservatory of Poznań · Poland</div>
+        <div class="cred-desc">Graduated with a Master's in Cello Performance from one of Poland's most distinguished music conservatories.</div>
+      </div>
+      <div class="cred-card">
+        <span class="cred-icon">🏆</span>
+        <div class="cred-title">J.S. Bach Competition</div>
+        <div class="cred-place">International · Poland</div>
+        <div class="cred-desc">Awarded honours at the J.S. Bach Competition, recognising exceptional artistry in baroque cello repertoire.</div>
+      </div>
+      <div class="cred-card">
+        <span class="cred-icon">🎻</span>
+        <div class="cred-title">International Cello Competition</div>
+        <div class="cred-place">Austria</div>
+        <div class="cred-desc">Honoured at the International Cello Competition in Austria, competing against cellists from across Europe.</div>
+      </div>
+      <div class="cred-card">
+        <span class="cred-icon">🎵</span>
+        <div class="cred-title">University of Arizona</div>
+        <div class="cred-place">Tucson, Arizona · USA</div>
+        <div class="cred-desc">Continued advanced cello studies at the University of Arizona after relocating to the United States.</div>
+      </div>
+      <div class="cred-card">
+        <span class="cred-icon">🎙️</span>
+        <div class="cred-title">Principal Cellist</div>
+        <div class="cred-place">Youth String Orchestra · Slovenia</div>
+        <div class="cred-desc">Served as Principal Cellist, leading the cello section and representing the ensemble at concerts across Slovenia.</div>
+      </div>
+      <div class="cred-card">
+        <span class="cred-icon">📻</span>
+        <div class="cred-title">Radio & Television</div>
+        <div class="cred-place">Poland</div>
+        <div class="cred-desc">Recorded and broadcast for Polish radio and television as part of various professional ensembles early in his career.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPERTOIRE -->
+<section class="repertoire">
+  <div class="section-label">Musical Range</div>
+  <h2 class="section-heading" style="color:var(--cream);">Genres &amp; <em style="color:var(--gold-light);">styles</em></h2>
+  <div class="rep-inner">
+    <div>
+      <div class="rep-category-title">Classical Repertoire</div>
+      <ul class="rep-list">
+        <li>J.S. Bach — Cello Suites <span>Baroque</span></li>
+        <li>Dvorák — Cello Concerto <span>Romantic</span></li>
+        <li>Beethoven — Piano Sonatas <span>Classical</span></li>
+        <li>Brahms — Sonatas <span>Romantic</span></li>
+        <li>Elgar — Cello Concerto <span>Late Romantic</span></li>
+        <li>Chopin — Nocturnes &amp; Études <span>Piano</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="rep-category-title">Contemporary & Cross-genre</div>
+      <ul class="rep-list">
+        <li>Jazz Standards &amp; Improvisation <span>Jazz</span></li>
+        <li>Andrew Lloyd Webber <span>Musical theatre</span></li>
+        <li>Singer-songwriter recordings <span>Pop/indie</span></li>
+        <li>Opera accompaniment <span>Opera</span></li>
+        <li>Festival &amp; touring ensembles <span>World</span></li>
+        <li>SF Symphony Education Program <span>Outreach</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUMENTS -->
+<section class="instruments" id="instruments">
+  <div class="instr-inner">
+    <div class="section-label">Teaching Specialisms</div>
+    <h2 class="section-heading">Cello &amp; <em>Piano</em></h2>
+    <div class="instr-cards">
+      <div class="instr-card">
+        <div class="instr-glyph">♩</div>
+        <div class="instr-name">Cello</div>
+        <div class="instr-level">Primary Instrument · All Levels</div>
+        <div class="instr-desc">Paweł's principal instrument, studied to Master's level and performed professionally across Europe and the United States. Lessons cover technique, posture, bow mechanics, tone production, and repertoire spanning baroque to contemporary. Both beginners and advanced students are warmly welcome.</div>
+      </div>
+      <div class="instr-card">
+        <div class="instr-glyph">♪</div>
+        <div class="instr-name">Piano</div>
+        <div class="instr-level">Secondary Instrument · All Levels</div>
+        <div class="instr-desc">An accomplished pianist, Paweł teaches piano alongside cello with equal care and depth. Lessons are tailored to the student's goals — classical foundation, music theory, sight-reading, or repertoire in a style of their choosing, from Chopin to jazz harmony.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER HIGHLIGHTS -->
+<section class="highlights" id="highlights">
+  <div class="hl-inner">
+    <div class="section-label">Career Milestones</div>
+    <h2 class="section-heading">A journey <em>across<br>stages</em></h2>
+    <div class="hl-timeline">
+      <div class="hl-item">
+        <div class="hl-location">Poznań, Poland</div>
+        <div class="hl-text">Conservatory of Poznań — Master's Degree in Cello Performance</div>
+        <div class="hl-sub">Formal classical training culminating in a graduate recital and distinction in cello performance</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-location">Poland &amp; Austria</div>
+        <div class="hl-text">International competition honours — J.S. Bach Competition & International Cello Competition</div>
+        <div class="hl-sub">Recognised among Europe's finest young cellists in open international competition</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-location">Slovenia</div>
+        <div class="hl-text">Principal Cellist — Youth String Orchestra</div>
+        <div class="hl-sub">Led the cello section and represented the ensemble at regional and national concerts</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-location">Europe</div>
+        <div class="hl-text">International tour with the Andrew Lloyd Webber Orchestra</div>
+        <div class="hl-sub">Performed hit musical theatre repertoire on tour across European venues</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-location">Tucson, Arizona</div>
+        <div class="hl-text">University of Arizona — advanced cello studies</div>
+        <div class="hl-sub">Continued artistic development at graduate level in the United States</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-location">Arkansas</div>
+        <div class="hl-text">Cellist — Opera in the Ozarks</div>
+        <div class="hl-sub">Performed operatic repertoire in the Arkansas Ozarks for one of America's beloved summer opera festivals</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-location">National tour, USA</div>
+        <div class="hl-text">Touring ensemble — festivals, venues &amp; cross-genre performance</div>
+        <div class="hl-sub">Brought eclectic, genre-blending music to audiences across the United States</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-location">San Francisco, California</div>
+        <div class="hl-text">Yoshi's Jazz Club · Diablo Symphony · SF Symphony Adventures in Music</div>
+        <div class="hl-sub">A Bay Area career spanning jazz clubs, symphony halls, and public music education outreach programs</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-location">Danville, California</div>
+        <div class="hl-text">Faculty — Reeder Music Academy</div>
+        <div class="hl-sub">Currently teaching cello and piano, sharing a lifetime of musical experience with students of all ages and abilities</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-heading">Ready to begin<br>your <em style="color:var(--gold-light);">musical</em><br>journey?</h2>
+      <p>Whether you're picking up the cello for the first time or refining an advanced repertoire, Paweł welcomes students of all backgrounds. Reach out to book your first lesson.</p>
+      <a class="contact-link" href="https://www.facebook.com/pawel.walerowski" target="_blank" rel="noopener">
+        <div class="contact-link-icon">f</div>
+        facebook.com/pawel.walerowski
+      </a>
+      <a class="contact-link" href="https://www.ensembleschools.com/reeder/contact/" target="_blank" rel="noopener">
+        <div class="contact-link-icon">✉</div>
+        Book via Reeder Music Academy
+      </a>
+      <a class="contact-link" href="tel:+19259640571">
+        <div class="contact-link-icon">☎</div>
+        (925) 964-0571
+      </a>
+    </div>
+    <div>
+      <div class="contact-school">
+        <div class="school-name">Reeder Music Academy</div>
+        <div class="school-sub">Danville, California</div>
+        <div class="school-detail">
+          3482 Camino Tassajara<br>
+          Danville, CA 94506<br><br>
+          Mon–Fri: 12:30 pm – 9:00 pm<br>
+          Saturday: 9:00 am – 5:00 pm<br>
+          Sunday: Closed
+        </div>
+        <a href="https://www.ensembleschools.com/reeder/contact/" target="_blank" rel="noopener" class="school-btn">Book a lesson →</a>
+      </div>
+      <div style="margin-top: 2rem; padding: 2rem; border: 0.5px solid rgba(255,255,255,0.08);">
+        <div class="school-sub" style="margin-bottom:1rem;">Lesson offerings</div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <div style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(248,244,238,0.4); margin-bottom:0.3rem;">Instrument</div>
+            <div style="color:var(--cream); font-family:var(--serif); font-size:1.1rem;">Cello &amp; Piano</div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(248,244,238,0.4); margin-bottom:0.3rem;">Level</div>
+            <div style="color:var(--cream); font-family:var(--serif); font-size:1.1rem;">All levels</div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(248,244,238,0.4); margin-bottom:0.3rem;">Format</div>
+            <div style="color:var(--cream); font-family:var(--serif); font-size:1.1rem;">In-person &amp; Virtual</div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(248,244,238,0.4); margin-bottom:0.3rem;">Styles</div>
+            <div style="color:var(--cream); font-family:var(--serif); font-size:1.1rem;">Classical, Pop, Jazz</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Paweł Walerowski</span>
+  <p>Cellist · Pianist · Educator · Danville, CA</p>
+  <p>© 2026</p>
+</footer>
+
+</body>
+</html>
